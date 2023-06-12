@@ -16,10 +16,11 @@ const filesToUpload = [
   // "swag-store",
   // "cart",
   // "my-cart",
-  "checkout",
+  // "checkout",
   // "thank-you",
   // "admin",
   // "announcement",
+  "user-management",
   // "",
 ];
 
@@ -47,7 +48,7 @@ const returnPromise = (file) => {
 
 for (const file of filesToUpload) {
   (async () => {
-    const inputCode = fs.readFileSync(`${file}.js`, {
+    const inputCode = fs.readFileSync(`js/${file}.js`, {
       encoding: "utf8",
     });
     const outputCode = minify(inputCode, {}).code;
