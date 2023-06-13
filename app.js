@@ -20,7 +20,10 @@ const filesToUpload = [
   // "thank-you",
   // "admin",
   // "announcement",
-  "user-management",
+  // "user-management",
+  // "signup",
+  // "auth",
+  "login",
   // "",
 ];
 
