@@ -27,6 +27,7 @@ window.addEventListener("load", () => {
         );
         if (passwordEl) formData.password = passwordEl.value;
 
+        console.log(JSON.stringify(formData));
         const req = await fetch(`${baseUrl}/api/auth/login`, {
           method: "POST",
           headers: {
@@ -40,7 +41,7 @@ window.addEventListener("load", () => {
         if (resp.status) {
           localStorage.setItem("__user_data", JSON.stringify(resp.data));
           setTimeout(() => {
-            window.location.pathname = "/";
+            window.location.pathname = "/dashboard";
           }, 1000);
         } else throw new Error(resp.msg);
       } catch (error) {

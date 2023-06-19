@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
                 password: "",
                 c_password: "",
             };
-            const nameEl = formEl.querySelector(`input[name="Name"]`);
+            const nameEl = formEl.querySelector(`input[name="name"]`);
             if (nameEl)
                 formData.name = nameEl.value.trim();
             const passwordEl = formEl.querySelector(`input[name="Password"]`);
@@ -35,8 +35,11 @@ window.addEventListener("load", () => {
                         credentials: "include",
                     });
                     const resp = await req.json();
-                    if (resp.status)
+                    if (resp.status) {
                         localStorage.setItem("__user_data", JSON.stringify(resp.data));
+                        const { hostname } = window.location;
+                        window.location.href = `https://${hostname}/dashboard`;
+                    }
                     else
                         throw new Error(resp.msg);
                 }

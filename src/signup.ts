@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
       };
 
       const nameEl =
-        formEl.querySelector<HTMLInputElement>(`input[name="Name"]`);
+        formEl.querySelector<HTMLInputElement>(`input[name="name"]`);
       if (nameEl) formData.name = nameEl.value.trim();
 
       const passwordEl = formEl.querySelector<HTMLInputElement>(
@@ -63,9 +63,11 @@ window.addEventListener("load", () => {
 
           const resp: Awaited<ActivateApiRespT> = await req.json();
 
-          if (resp.status)
+          if (resp.status) {
             localStorage.setItem("__user_data", JSON.stringify(resp.data));
-          else throw new Error(resp.msg);
+            const { hostname } = window.location;
+            window.location.href = `https://${hostname}/dashboard`;
+          } else throw new Error(resp.msg);
         } else throw new Error("Passwords don't match!");
       } catch (error) {
         console.error(error);
