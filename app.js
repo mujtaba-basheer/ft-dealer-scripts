@@ -30,6 +30,7 @@ const filesToUpload = [
   // "auth",
   // "login",
   "inventory-form",
+  // "dashboard",
 ];
 
 const returnPromise = (file) => {

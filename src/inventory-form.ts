@@ -232,7 +232,7 @@ window.addEventListener("load", async () => {
           }
         }
 
-        const req = await fetch(`${baseUrl}/api/trailer/inventory`, {
+        const req = await fetch(`${baseUrl}/api/inventory`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

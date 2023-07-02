@@ -13,7 +13,6 @@ window.addEventListener("load", () => {
                 const passwordEl = formEl.querySelector(`input[name="Password"]`);
                 if (passwordEl)
                     formData.password = passwordEl.value;
-                console.log(JSON.stringify(formData));
                 const req = await fetch(`${baseUrl}/api/auth/login`, {
                     method: "POST",
                     headers: {

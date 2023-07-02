@@ -27,7 +27,6 @@ window.addEventListener("load", () => {
         );
         if (passwordEl) formData.password = passwordEl.value;
 
-        console.log(JSON.stringify(formData));
         const req = await fetch(`${baseUrl}/api/auth/login`, {
           method: "POST",
           headers: {
